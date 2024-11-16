@@ -74,7 +74,9 @@ function App() {
       <div className={styles.grid}>
         {/* Player Panel */}
         <div className={styles.panel}>
-          <div className={styles.panelHeader}>Player</div>
+          <div className={styles.panelHeader}>
+            <div>Player</div>
+          </div>
           <div className={styles.panelContent}>
             <div className={styles.track}>
               Now Playing: {isPlaying ? "Playing" : "No track selected"}
@@ -101,7 +103,9 @@ function App() {
 
         {/* Search Panel */}
         <div className={styles.panel}>
-          <div className={styles.panelHeader}>Search</div>
+          <div className={styles.panelHeader}>
+            <div>Search</div>
+          </div>
           <div className={styles.panelContent}>
             <input
               type="text"
@@ -121,7 +125,9 @@ function App() {
 
         {/* Playlist Panel */}
         <div className={styles.panel}>
-          <div className={styles.panelHeader}>Playlist</div>
+          <div className={styles.panelHeader}>
+            <div>Playlist</div>
+          </div>
           <div className={`${styles.panelContent} ${styles.playlist}`}>
             {tracks.map((track, index) => (
               <div key={index} className={styles.track}>
@@ -133,7 +139,9 @@ function App() {
 
         {/* Friends Panel */}
         <div className={styles.panel}>
-          <div className={styles.panelHeader}>Friends</div>
+          <div className={styles.panelHeader}>
+            <div>Friends</div>
+          </div>
           <div className={`${styles.panelContent} ${styles.friends}`}>
             {friends.map((friend, index) => (
               <div key={index} className={styles.track}>
@@ -152,7 +160,9 @@ function App() {
 
         {/* Downloads Panel */}
         <div className={styles.panel}>
-          <div className={styles.panelHeader}>Downloads</div>
+          <div className={styles.panelHeader}>
+            <div>Downloads</div>
+          </div>
           <div className={`${styles.panelContent} ${styles.downloads}`}>
             {downloads.map((download, index) => (
               <div key={index} className={styles.track}>
@@ -170,7 +180,9 @@ function App() {
 
         {/* Settings Panel */}
         <div className={styles.panel}>
-          <div className={styles.panelHeader}>Settings</div>
+          <div className={styles.panelHeader}>
+            <div>Settings</div>
+          </div>
           <div className={styles.panelContent}>
             <div className={styles.track}>
               <label>
