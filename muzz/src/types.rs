@@ -14,6 +14,9 @@ pub struct State {
     /// can add more indices later!
     pub path_to_songs: HashMap<String, Song>,
 
+    /// profiles stored locally and updated
+    pub profiles: HashMap<Address, Profile>,
+
     /// playlists
     pub playlists: Vec<Playlist>,
 
@@ -31,7 +34,6 @@ pub struct State {
     /// our personal profile and vinyl bar.
     /// can have hangouts, but mainly we keep the source of truth on our own page, even if shared with others.
     /// ofc, kino.
-    /// fuck settings too.
     pub profile: Profile,
 
     /// general settings for now
@@ -139,6 +141,7 @@ impl State {
                 address: our.clone(),
                 posts: vec![],
             },
+            profiles: HashMap::new(),
             settings: Settings {
                 public_song_sharing: true,
                 public_wall: true,

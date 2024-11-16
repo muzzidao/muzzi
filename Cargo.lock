@@ -1787,6 +1787,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "blake3",
+ "hex",
  "kinode_process_lib",
  "process_macros",
  "serde",
