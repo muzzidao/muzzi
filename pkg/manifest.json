@@ -1,0 +1,21 @@
+[
+    {
+        "process_name": "muzz",
+        "process_wasm_path": "/muzz.wasm",
+        "on_exit": "Restart",
+        "request_networking": true,
+        "request_capabilities": [
+            "terminal:terminal:sys",
+            "vfs:distro:sys",
+            "http_server:distro:sys",
+            "http_client:distro:sys"
+        ],
+        "grant_capabilities": [
+            "terminal:terminal:sys",
+            "vfs:distro:sys",
+            "http_server:distro:sys",
+            "http_client:distro:sys"
+        ],
+        "public": false
+    }
+]

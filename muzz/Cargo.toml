@@ -1,0 +1,19 @@
+[package]
+name = "muzz"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+kinode_process_lib = "0.9.6"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+process_macros = { git = "https://github.com/kinode-dao/process_macros" }
+wit-bindgen = "0.24.0"
+blake3 = "1.5.4"
+
+[lib]
+crate-type = ["cdylib"]
+
+[package.metadata.component]
+package = "kinode:process"
