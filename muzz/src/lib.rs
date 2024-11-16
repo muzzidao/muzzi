@@ -442,7 +442,7 @@ pub fn init_frontend(our: &Address, http_server: &mut http::server::HttpServer) 
     }
 
     http_server
-        .serve_ui(&our, "ui1", vec!["/"], config.clone())
+        .serve_ui(&our, "ui", vec!["/"], config.clone())
         .expect("failed to serve static UI");
 
     // http_server

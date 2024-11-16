@@ -1853,6 +1853,7 @@ dependencies = [
  "process_macros 0.1.0 (git+https://github.com/kinode-dao/process_macros)",
  "serde",
  "serde_json",
+ "sha2",
  "wit-bindgen",
 ]
 

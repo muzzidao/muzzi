@@ -13,6 +13,7 @@ wit-bindgen = "0.24.0"
 blake3 = "1.5.4"
 anyhow = "1.0.93"
 hex = "0.4.3"
+sha2 = "0.10.8"
 
 [lib]
 crate-type = ["cdylib"]
