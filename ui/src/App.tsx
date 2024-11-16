@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
 import KinodeClientApi from "@kinode/client-api";
-import { SendSandboxMessage } from "./types/Sandbox";
-import useSandboxStore from "./store/sandbox";
 import styles from "./App.module.css";
 
 const BASE_URL = import.meta.env.BASE_URL;
