@@ -1,0 +1,226 @@
+CTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-panel: #2a2a2a;
+            --border-color: #333;
+            --text-color: #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: var(--bg-dark);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .panel-header {
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-content {
+            padding: 8px;
+        }
+
+        .track {
+            padding: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .player-controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #444;
+            border-radius: 2px;
+        }
+
+        .progress {
+            width: 30%;
+            height: 100%;
+            background: #666;
+            border-radius: 2px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            background: var(--border-color);
+            border: none;
+            border-radius: 4px;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        button {
+            padding: 4px 8px;
+            background: var(--border-color);
+            border: none;
+            border-radius: 4px;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <!-- Player Panel -->
+        <div class="panel">
+            <div class="panel-header">Player</div>
+            <div class="panel-content">
+                <div class="track">Now Playing: No track selected</div>
+                <div class="player-controls">
+                    <button id="prev">◀◀</button>
+                    <button id="playPause">▶️</button>
+                    <button id="next">▶▶</button>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Panel -->
+        <div class="panel">
+            <div class="panel-header">Search</div>
+            <div class="panel-content">
+                <input type="text" placeholder="Search tracks...">
+                <div class="track">Search Results</div>
+            </div>
+        </div>
+
+        <!-- Playlist Panel -->
+        <div class="panel">
+            <div class="panel-header">Playlist</div>
+            <div class="panel-content" id="playlist"></div>
+        </div>
+
+        <!-- Friends Panel -->
+        <div class="panel">
+            <div class="panel-header">Friends</div>
+            <div class="panel-content" id="friends"></div>
+        </div>
+
+        <!-- Downloads Panel -->
+        <div class="panel">
+            <div class="panel-header">Downloads</div>
+            <div class="panel-content" id="downloads"></div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="panel">
+            <div class="panel-header">Settings</div>
+            <div class="panel-content">
+                <div class="track">
+                    <label>
+                        Show Offline Friends
+                        <input type="checkbox">
+                    </label>
+                </div>
+                <div class="track">
+                    <label>
+                        Enable Discovery
+                        <input type="checkbox">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data
+        const mockTracks = ['Track 1', 'Track 2', 'Track 3'];
+        const mockFriends = [
+            { name: 'Friend 1', status: 'Online' },
+            { name: 'Friend 2', status: 'Offline' }
+        ];
+        const mockDownloads = [
+            { name: 'Track 1.mp3', progress: 45 },
+            { name: 'Track 2.mp3', progress: 78 }
+        ];
+
+        // Initialize UI
+        function initUI() {
+            // Playlist
+            const playlist = document.getElementById('playlist');
+            mockTracks.forEach(track => {
+                playlist.innerHTML += `<div class="track">${track}</div>`;
+            });
+
+            // Friends
+            const friends = document.getElementById('friends');
+            mockFriends.forEach(friend => {
+                friends.innerHTML += `
+                    <div class="track">
+                        ${friend.name}
+                        <span style="color: ${friend.status === 'Online' ? '#4CAF50' : '#666'}">
+                            ${friend.status}
+                        </span>
+                    </div>
+                `;
+            });
+
+            // Downloads
+            const downloads = document.getElementById('downloads');
+            mockDownloads.forEach(download => {
+                downloads.innerHTML += `
+                    <div class="track">
+                        <div>${download.name}</div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: ${download.progress}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Player controls
+            let isPlaying = false;
+            const playPauseBtn = document.getElementById('playPause');
+            playPauseBtn.addEventListener('click', () => {
+                isPlaying = !isPlaying;
+                playPauseBtn.textContent = isPlaying ? '⏸️' : '▶️';
+            });
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', initUI);
+    </script>
+</body>
+</html>
+
